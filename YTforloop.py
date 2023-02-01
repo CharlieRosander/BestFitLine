@@ -14,22 +14,28 @@ for i in range(0, len(x1)):
     a.append(1)
 
 A = array(a,dtype=float)
+print(A)
 A = A.reshape(len(x1), 2)
+print(A)
 Y = array(y,dtype=float)
 
+# print(A)
+# print(Y)
+# print(a)
 # Skapa normalekvation
 At = A.transpose()
 A = dot(At, A)
 Y = dot(At, Y)
-print(A)
-print(Y)
+# print(A)
+# print(Y)
+# print(At)
 # Slå ihop x och y till en matris som blir en enda ekvation
 a = concatenate((A, Y.reshape(-1, 1)), axis=1)
 rows = shape(a)[0]
 cols = shape(a)[1]
 #solution vector to store solutions
 x = zeros(cols-1)
-print(a)
+# print(a)
 
 
 for i in range(cols-1): # spot the first column element making the factor
@@ -40,7 +46,7 @@ for i in range(cols-1): # spot the first column element making the factor
         # a[j,i] = first elemnt in row j
         # a[i, i] = pivot element
         a[j, :] = -(a[j, i]/a[i, i])*a[i, :]+a[j, :]
-print(a)
+# print(a)
     # back substitution algorithm
     # bottom right to the top left
 
@@ -50,8 +56,8 @@ for i in arange(rows-1, -1, -1): # iterating from row -1 to row - 1
 #     # start at row i and go from 0 to columns - 1 and mulitply everything
 #     # with the x-vector
 
-print(a)
-print(x1)
+# print(a)
+# print(x1)
 
 # Skriv ut "bästa linjen" och plota linjen
 
