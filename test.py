@@ -19,12 +19,13 @@ class RawData:
 
         for data_type in df_y:
             if isinstance(data_type, str):
-                print(f"The data is of type 'string', filling array with floats for the len(df_y).")
                 cls.y = np.array(range(1, len(df_y) + 1), dtype=float)
 
+                return print(f"The data is of type 'string', filling array with floats for range(len(df_y)).")
             elif isinstance(data_type, float) or isinstance(data_type, int):
-                print(f"The data is of type: {type(data_type)}, no other actions taken.")
                 cls.y = np.array(df_y, dtype=float)
+
+                return print(f"The data is of type: {type(data_type)}, converted values to dtype float.")
 
 
 class Calculations:
@@ -76,7 +77,7 @@ def create_graph():
     return plt.show()
 
 
-RawData.import_csv("smhi-data.csv")
+RawData.import_csv("smhi-data-int.csv")
 RawData.create_matrix(RawData.df.temp, RawData.df.month)
 Calculations.prepare_arrays(RawData.x, RawData.y)
 Calculations.gauss_and_least_square()
