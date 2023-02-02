@@ -66,13 +66,13 @@ class Calculations:
         cls.m = np.round(solution_vector[1], 3)
 
 
-def create_graph():
+def create_graph(x_raw, y_raw, k, m):
     plt.title("Medeltemperaturer 2022")
     plt.xlabel("Temperature")
     plt.ylabel("Month")
-    plt.scatter(RawData.x, RawData.y, label="Medeltemperatur")
-    plt.plot(RawData.x, Calculations.k * RawData.x + Calculations.m, "-r",
-             label=f"Best line fit\nwhere;\nK = {Calculations.k}\nm = {Calculations.m}")
+    plt.scatter(x_raw, y_raw, label="Medeltemperatur")
+    plt.plot(x_raw, k * x_raw + m, "-r",
+             label=f"Best line fit\nwhere;\nK = {k}\nm = {m}")
     plt.legend()
     return plt.show()
 
@@ -81,4 +81,4 @@ RawData.import_csv("smhi-data-int.csv")
 RawData.create_matrix(RawData.df.temp, RawData.df.month)
 Calculations.prepare_arrays(RawData.x, RawData.y)
 Calculations.gauss_and_least_square()
-create_graph()
+create_graph(RawData.x, RawData.y, Calculations.k, Calculations.m)
