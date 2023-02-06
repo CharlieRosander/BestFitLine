@@ -1,9 +1,6 @@
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
 from backend import RawData, Calculations, create_graph
 
-
+# Här körs programmet genom att kalla på alla funktioner
 if __name__ == "__main__":
     RawData.import_csv("smhi-data-int.csv")
     RawData.create_arrays(RawData.df.temp, RawData.df.month)

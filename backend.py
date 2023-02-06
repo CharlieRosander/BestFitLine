@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-# Class for the raw data and the creation of arrays with that data
+# Klass för att importera en csv fil och sedan skapa arrays med den datan
 class RawData:
     df = None
     x = None
