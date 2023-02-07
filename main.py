@@ -1,4 +1,5 @@
 from backend import RawData, Calculations, create_graph
+# Program skrivet av Charlie Rosander
 
 # Här körs programmet genom att kalla på alla funktioner
 if __name__ == "__main__":
